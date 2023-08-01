@@ -3,6 +3,7 @@ package com.driver.controllers;
 import com.driver.model.Customer;
 import com.driver.model.TripBooking;
 import com.driver.services.CustomerService;
+import com.driver.services.impl.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
+
 	@Autowired
-	CustomerService customerService;
+	CustomerServiceImpl customerService;
+
 	@PostMapping("/register")
 	public ResponseEntity<Void> registerCustomer(@RequestBody Customer customer){
 		customerService.register(customer);
@@ -39,4 +42,30 @@ public class CustomerController {
 	public void cancelTrip(@RequestParam Integer tripId){
 		customerService.cancelTrip(tripId);
 	}
+
+	@GetMapping("/customPath/{end}")
+	public int solve(@PathVariable String end) {
+		return Integer.parseInt(end);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
