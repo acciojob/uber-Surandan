@@ -27,13 +27,10 @@ public class AdminController {
 
 	@PutMapping("/update")
 	public ResponseEntity<Admin> updateAdminPassword(@RequestParam Integer adminId, @RequestParam String password) throws Exception{
-		try{
+
 			Admin updatedAdmin = adminService.updatePassword(adminId,password);
 			return new ResponseEntity<>(updatedAdmin, HttpStatus.OK);
-		}
-		catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.OK);
-		}
+
 	}
 
 	@DeleteMapping("/delete")
