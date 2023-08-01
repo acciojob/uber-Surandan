@@ -3,31 +3,42 @@ package com.driver.model;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int driverId;
+    int id;
 
     String mobile;
 
     String password;
 
     @OneToOne(mappedBy = "driver",cascade = CascadeType.ALL)
-    @JsonIgnore
-    Cab cab;
+    private Cab cab;
 
     @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
-    List<TripBooking> tripBookingList;
+    List<TripBooking> tripBookingList = new ArrayList<>();
 
-    public int getDriverId() {
-        return driverId;
+    public Driver() {
     }
 
-    public void setDriverId(int driverId) {
-        this.driverId = driverId;
+    public Driver(int id, String mobile, String password, Cab cab, List<TripBooking> tripBookingList) {
+        this.id = id;
+        this.mobile = mobile;
+        this.password = password;
+        this.cab = cab;
+        this.tripBookingList = tripBookingList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMobile() {
@@ -61,5 +72,4 @@ public class Driver {
     public void setTripBookingList(List<TripBooking> tripBookingList) {
         this.tripBookingList = tripBookingList;
     }
-
 }

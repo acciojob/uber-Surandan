@@ -17,9 +17,8 @@ public class Cab {
 
 
     @OneToOne
-    @JsonIgnore
     @JoinColumn
-    Driver driver;
+    private Driver driver;
 
     public Cab(int id, int perKmRate, boolean available, Driver driver) {
         this.id = id;
