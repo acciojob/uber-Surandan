@@ -1,7 +1,5 @@
 package com.driver.model;
 
-import net.minidev.json.annotate.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.List;
 public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int driverId;
 
     String mobile;
 
@@ -26,19 +24,19 @@ public class Driver {
     }
 
     public Driver(int id, String mobile, String password, Cab cab, List<TripBooking> tripBookingList) {
-        this.id = id;
+        this.driverId = id;
         this.mobile = mobile;
         this.password = password;
         this.cab = cab;
         this.tripBookingList = tripBookingList;
     }
 
-    public int getId() {
-        return id;
+    public int getDriverId() {
+        return driverId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
     }
 
     public String getMobile() {
