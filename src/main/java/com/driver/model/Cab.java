@@ -1,8 +1,6 @@
 package com.driver.model;
 
 import net.minidev.json.annotate.JsonIgnore;
-import org.hibernate.annotations.Generated;
-import org.hibernate.annotations.OnDelete;
 
 import javax.persistence.*;
 
@@ -49,7 +47,7 @@ public class Cab {
         this.perKmRate = perKmRate;
     }
 
-    public boolean isAvailable() {
+    public boolean getAvailable() {
         return available;
     }
 
