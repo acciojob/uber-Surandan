@@ -3,7 +3,6 @@ package com.driver.services.impl;
 import java.util.List;
 import java.util.Optional;
 
-import com.driver.Exeptions.AdminNotFound;
 import com.driver.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,10 +33,10 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Admin updatePassword(Integer adminId, String password) throws AdminNotFound {
+	public Admin updatePassword(Integer adminId, String password) throws Exception {
 		//Update the password of admin with given id
 		Optional<Admin> optionalAdmin = adminRepository1.findById(adminId);
-		if (!optionalAdmin.isPresent()) throw new AdminNotFound("Invalid adminId !");
+		if (!optionalAdmin.isPresent()) throw new Exception("Invalid adminId !");
         Admin admin = optionalAdmin.get();
 		admin.setPassword(password);
 		return adminRepository1.save(admin);

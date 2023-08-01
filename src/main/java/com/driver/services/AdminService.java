@@ -2,7 +2,7 @@ package com.driver.services;
 
 import java.util.List;
 
-import com.driver.Exeptions.AdminNotFound;
+
 import com.driver.model.Admin;
 import com.driver.model.Customer;
 import com.driver.model.Driver;
@@ -11,7 +11,7 @@ public interface AdminService {
 
 	public void adminRegister(Admin admin);
 
-	public Admin updatePassword(Integer adminId, String password) throws AdminNotFound;
+	public Admin updatePassword(Integer adminId, String password) throws Exception;
 
 	public void deleteAdmin(int adminId);
 
