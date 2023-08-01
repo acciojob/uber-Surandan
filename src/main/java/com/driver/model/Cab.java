@@ -1,5 +1,6 @@
 package com.driver.model;
 
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.OnDelete;
 
@@ -15,7 +16,10 @@ public class Cab {
 
     boolean available;
 
+
+
     @OneToOne
+    @JsonIgnore
     @JoinColumn
     Driver driver;
 
@@ -52,7 +56,7 @@ public class Cab {
     public void setAvailable(boolean available) {
         this.available = available;
     }
-
+    
     public Driver getDriver() {
         return driver;
     }
