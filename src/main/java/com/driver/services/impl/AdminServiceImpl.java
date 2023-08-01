@@ -33,10 +33,9 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Admin updatePassword(Integer adminId, String password) throws Exception {
+	public Admin updatePassword(Integer adminId, String password) {
 		//Update the password of admin with given id
 		Optional<Admin> optionalAdmin = adminRepository1.findById(adminId);
-		if (!optionalAdmin.isPresent()) throw new Exception("Invalid adminId !");
         Admin admin = optionalAdmin.get();
 		admin.setPassword(password);
 		return adminRepository1.save(admin);
